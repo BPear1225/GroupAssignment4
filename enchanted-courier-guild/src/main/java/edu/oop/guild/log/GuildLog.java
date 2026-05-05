@@ -1,10 +1,40 @@
 package edu.oop.guild.log;
 
-public class GuildLog {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
+public class GuildLog {
+	private static GuildLog log = null;
+	private List<String> entries;
+	
 	public static GuildLog getInstance() {
-		// TODO Auto-generated method stub
-		return null;
+		if (log == null) {
+			log = new GuildLog();
+		}
+		return log;
+	}
+
+	public GuildLog() {
+		this.entries = new ArrayList<>();
+	}
+
+	public List<String> entries() {
+		return Collections.unmodifiableList(entries);
+	}
+
+	public Integer size() {
+		return entries.size();
+	}
+
+	public void record(String string) {
+		entries.add(string);
+		
+	}
+
+	public void clear() {
+		entries.clear();
+		
 	}
 
 }
