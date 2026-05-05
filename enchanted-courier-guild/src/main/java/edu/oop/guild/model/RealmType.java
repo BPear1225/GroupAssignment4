@@ -1,11 +1,17 @@
 package edu.oop.guild.model;
 
 public enum RealmType {
-	SKY
+	SKY("Sky Kingdom"), 
+	UNDERGROUND("Underground Market")
 	;
-	public Object displayName() {
-		
-		return null;
+	private RealmType(String name) {
+		this.displayName = name;
+	}
+
+	private final String displayName;
+	
+	public String displayName() {
+		return displayName;
 	}
 
 }

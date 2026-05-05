@@ -1,12 +1,19 @@
 package edu.oop.guild.model;
 
 public enum PackageType {
-	POTION, FOOD, ARTIFACT
+	POTION("Snack crate"), 
+	FOOD("Potion case"), 
+	ARTIFACT("Ancient artifact")
 	;
+	
+	private final String label;
 
-	Object label() {
-		// TODO Auto-generated method stub
-		return null;
+	private PackageType(String lable) {
+		this.label = lable;
+	}
+
+	public String label() {
+		return label;
 	}
 
 }
