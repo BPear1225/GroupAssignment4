@@ -1,7 +1,7 @@
 package edu.oop.guild.model;
 
 public enum PackageType {
-	POTION
+	POTION, FOOD, ARTIFACT
 	;
 
 	Object label() {
