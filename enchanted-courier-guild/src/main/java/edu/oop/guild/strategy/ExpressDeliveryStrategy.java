@@ -1,6 +1,8 @@
 package edu.oop.guild.strategy;
 
 import edu.oop.guild.model.DeliveryRequest;
+import edu.oop.guild.model.PackageType;
+import edu.oop.guild.model.RealmType;
 
 public class ExpressDeliveryStrategy implements DeliveryCostStrategy {
 
@@ -13,30 +15,16 @@ public class ExpressDeliveryStrategy implements DeliveryCostStrategy {
 		if (request.isFragile()) {
 			price += 10;
 		}
-		switch (request.getPackageType()) {
-		case FOOD:
-			break;
-		case POTION:
+		if (request.getPackageType() == PackageType.POTION) {
 			price += 5;
-			break;
-		case ARTIFACT:
+		}
+		if (request.getPackageType() == PackageType.ARTIFACT){
 			price += 17;
-			break;
-
-		default:
-			break;
 		}
-		switch (request.getDestinationRealm()) {
-		case SKY:
+		if (request.getDestinationRealm() == RealmType.SKY) {
 			price += 7;
-			break;
-		case UNDERGROUND:
-			price += 0;
-			break;
-		default:
-
-			break;
 		}
+
 		price += request.getWeightKg() * 1;
 		price += request.getDistanceLeagues() * 2;
 		return price;

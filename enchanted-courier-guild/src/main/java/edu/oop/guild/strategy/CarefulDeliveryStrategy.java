@@ -10,15 +10,12 @@ public class CarefulDeliveryStrategy implements DeliveryCostStrategy {
 			throw new NullPointerException("Must have a request to estimate cost");
 		}
 		int price = 15;
-		if (request.isFragile()) {
-			price += 0;
-		}
 		switch (request.getPackageType()) {
-		case FOOD:
-			break;
+
 		case POTION:
 			price += 5;
 			break;
+
 		case ARTIFACT:
 			price += 17;
 			break;
@@ -26,16 +23,8 @@ public class CarefulDeliveryStrategy implements DeliveryCostStrategy {
 		default:
 			break;
 		}
-		switch (request.getDestinationRealm()) {
-		case SKY:
-			price += 7;
-			break;
-		case UNDERGROUND:
-			break;
-		default:
 
-			break;
-		}
+		price += 7;
 		price += request.getWeightKg() * 1;
 		price += request.getDistanceLeagues() * 2;
 		return price;

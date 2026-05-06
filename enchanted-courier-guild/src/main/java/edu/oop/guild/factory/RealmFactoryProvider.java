@@ -6,14 +6,12 @@ public class RealmFactoryProvider {
 
 	public RealmFactory forRealm(RealmType realmType) {
 		return switch (realmType) {
-		case UNDERGROUND : {
+		case UNDERGROUND: {
 			yield new UndergroundRealmFactory();
 		}
-		case SKY :{
+		case SKY: {
 			yield new SkyRealmFactory();
 		}
-		default:
-			throw new NullPointerException("Must be a valid Realm");
 		};
 	}
 

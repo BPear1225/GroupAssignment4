@@ -13,30 +13,8 @@ public class StandardDeliveryStrategy implements DeliveryCostStrategy {
 		if (request.isFragile()) {
 			price += 5;
 		}
-		switch (request.getPackageType()) {
-		case FOOD:
-			break;
-		case POTION:
-			price += 5;
-			break;
-		case ARTIFACT:
-			price += 17;
-			break;
+		price += 7;	
 
-		default:
-			break;
-		}
-		switch (request.getDestinationRealm()) {
-		case SKY:
-			price += 7;
-			break;
-		case UNDERGROUND:
-			price += 0;
-			break;
-		default:
-
-			break;
-		}
 		price += request.getWeightKg() * 1;
 		price += request.getDistanceLeagues() * 2;
 
