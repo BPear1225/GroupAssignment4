@@ -28,6 +28,9 @@ public class GuildLog {
 	}
 
 	public void record(String string) {
+		if (string == null) {
+			throw new NullPointerException("Must have something to record");
+		}
 		entries.add(string);
 		
 	}
