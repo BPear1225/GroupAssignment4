@@ -1,8 +1,8 @@
 package edu.oop.guild.model;
 
 public enum PackageType {
-	POTION("Snack crate"), 
-	FOOD("Potion case"), 
+	POTION("Potion case"), 
+	FOOD("Snack crate"), 
 	ARTIFACT("Ancient artifact")
 	;
 	
