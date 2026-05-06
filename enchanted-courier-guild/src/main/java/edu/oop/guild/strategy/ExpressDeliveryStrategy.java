@@ -2,17 +2,44 @@ package edu.oop.guild.strategy;
 
 import edu.oop.guild.model.DeliveryRequest;
 
-public class ExpressDeliveryStrategy implements DeliveryCostStrategy{
+public class ExpressDeliveryStrategy implements DeliveryCostStrategy {
 
 	@Override
 	public int estimateCoins(DeliveryRequest request) {
 		if (request == null) {
 			throw new NullPointerException("Must have a request to estimate cost");
 		}
+		int price = 24;
 		if (request.isFragile()) {
-			return 57;
+			price += 10;
 		}
-		return 47;
+		switch (request.getPackageType()) {
+		case FOOD:
+			break;
+		case POTION:
+			price += 5;
+			break;
+		case ARTIFACT:
+			price += 17;
+			break;
+
+		default:
+			break;
+		}
+		switch (request.getDestinationRealm()) {
+		case SKY:
+			price += 7;
+			break;
+		case UNDERGROUND:
+			price += 0;
+			break;
+		default:
+
+			break;
+		}
+		price += request.getWeightKg() * 1;
+		price += request.getDistanceLeagues() * 2;
+		return price;
 	}
 
 }

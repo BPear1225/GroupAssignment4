@@ -6,22 +6,39 @@ public class CarefulDeliveryStrategy implements DeliveryCostStrategy {
 
 	@Override
 	public int estimateCoins(DeliveryRequest request) {
-		return switch (request.getPackageType()) {
-		case FOOD: {
-
-			yield 28;
-		}
-		case POTION: {
-
-			yield 33;
-		}
-		case ARTIFACT: {
-
-			yield 45;
-		}
-		default:
+		if (request == null) {
 			throw new NullPointerException("Must have a request to estimate cost");
-		};
+		}
+		int price = 15;
+		if (request.isFragile()) {
+			price += 0;
+		}
+		switch (request.getPackageType()) {
+		case FOOD:
+			break;
+		case POTION:
+			price += 5;
+			break;
+		case ARTIFACT:
+			price += 17;
+			break;
+
+		default:
+			break;
+		}
+		switch (request.getDestinationRealm()) {
+		case SKY:
+			price += 7;
+			break;
+		case UNDERGROUND:
+			break;
+		default:
+
+			break;
+		}
+		price += request.getWeightKg() * 1;
+		price += request.getDistanceLeagues() * 2;
+		return price;
 	}
 
 }

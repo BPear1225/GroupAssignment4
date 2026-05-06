@@ -48,5 +48,10 @@ public class DeliveryRequest {
 	public boolean isFragile() {
 		return fragile;
 	}
+	
+	@Override
+	public String toString() {
+		return packageType.label()+ " to " + destinationRealm.displayName();
+	}
 
 }
