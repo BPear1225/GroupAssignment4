@@ -28,12 +28,12 @@ public class DeliveryPlan {
 		this.price = price;
 	}
 
-	public PackageType getRequest() {
-		return request.getPackageType();
+	public DeliveryRequest getRequest() {
+		return request;
 	}
 
-	public String getCourier() {
-		return courier.name();
+	public Creature getCourier() {
+		return courier;
 	}
 
 	public String getSealedLabel() {
@@ -45,7 +45,7 @@ public class DeliveryPlan {
 	}
 
 	public String summary() {
-		return getCourier() + " delivers " + getSealedLabel() + " for " + getPriceInCoins() + " coins";
+		return courier.name() + " delivers " + sealLabel + " for " + price + " coins";
 	}
 
 }
