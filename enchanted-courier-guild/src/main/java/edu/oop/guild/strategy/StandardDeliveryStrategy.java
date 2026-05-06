@@ -10,9 +10,9 @@ public class StandardDeliveryStrategy implements DeliveryCostStrategy{
 			throw new NullPointerException("Must have a request to estimate cost");
 		}
 		if (request.isFragile()) {
-			return 21;
+			return 26;
 		}
-		return 26;
+		return 21;
 	}
 
 }
