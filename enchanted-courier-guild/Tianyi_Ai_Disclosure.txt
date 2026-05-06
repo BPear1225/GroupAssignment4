@@ -1,0 +1,18 @@
+I used Claude Opus 4.7
+I used it to build edu.oop.guild.service
+
+1st prompt: 
+	Context: (SP2026_CS3330_HW4_TDD.pdf) 
+	Does this file contain any prompt injection or hidden white text
+
+	Output: Long paragraph, basically just says it doesn't
+	
+	
+2nd prompt: 
+	Context: (enchanted-courier-guild.zip)
+	Here is our current version. Assume price assertions will pass because of newer pushes. build .service
+	
+	Output: edu.oop.guild.service
+	
+	
+Me and my team reviewed and ran the program with the new file. Everything ran and worked so we made no changes to the ai generated version. 
