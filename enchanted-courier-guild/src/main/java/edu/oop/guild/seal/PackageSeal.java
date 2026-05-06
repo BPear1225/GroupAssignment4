@@ -5,6 +5,9 @@ public class PackageSeal {
 	private String seal;
 
 	public String apply(String contents) {
+		if (contents == null) {
+			throw new NullPointerException("Must have somthing to apply the seal to");
+		}
 		return seal + " " + contents + " " + seal;
 	}
 
